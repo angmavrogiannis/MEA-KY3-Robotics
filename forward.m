@@ -1,0 +1,24 @@
+function M60 = forward(u1,u2,u3,u4,u5,u6)
+s1=sind(u1);
+c1=cosd(u1);
+s2=sind(u2);
+c2=cosd(u2);
+s3=sind(u3);
+c3=cosd(u3);
+s4=sind(u4);
+c4=cosd(u4);
+s5=sind(u5);
+c5=cosd(u5);
+s6=sind(u6);
+c6=cosd(u6);
+L2=315;
+L3=35;
+d4=365;
+M10=[c1 -s1 0 0;s1 c1 0 0;0 0 1 0;0 0 0 1];
+M21=[c2 -s2 0 0;0 0 -1 0;s2 c2 0 0;0 0 0 1];
+M32=[c3 -s3 0 L2;s3 c3 0 0;0 0 1 0;0 0 0 1];
+M43=[c4 -s4 0 L3;0 0 -1 -d4;s4 c4 0 0;0 0 0 1];
+M54=[c5 -s5 0 0;0 0 1 0; -s5 -c5 0 0;0 0 0 1];
+M65=[c6 -s6 0 0;0 0 -1 0;s6 c6 0 0;0 0 0 1];
+M60=M10*M21*M32*M43*M54*M65;
+end
